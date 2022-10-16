@@ -14,9 +14,7 @@ class UpdateCustomerRequest extends FormRequest
 
     public function rules()
     {
-        $method = $this->method();
-
-        if ($method == 'PUT') {
+        if ($this->method() == 'PUT') {
             return [
                 'name' => ['required', 'string', 'min:3', 'max:255'],
                 'type' => ['required', Rule::in(['I', 'B', 'i', 'b'])],

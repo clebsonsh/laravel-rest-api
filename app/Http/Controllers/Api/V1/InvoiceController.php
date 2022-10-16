@@ -24,7 +24,7 @@ class InvoiceController extends Controller
 
     public function store(StoreInvoiceRequest $request)
     {
-        //
+        return new InvoiceResource(Invoice::create($request->validated()));
     }
 
     public function bulkStore(BulkStoreInvoiceRequest $request)
@@ -47,11 +47,11 @@ class InvoiceController extends Controller
 
     public function update(UpdateInvoiceRequest $request, Invoice $invoice)
     {
-        //
+        $invoice->update($request->validated());
     }
 
     public function destroy(Invoice $invoice)
     {
-        //
+        $invoice->delete();
     }
 }
